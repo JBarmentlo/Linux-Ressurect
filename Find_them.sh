@@ -8,6 +8,8 @@ for file in $(find -name ".*.find.me"); do
 	dname=$(dirname $file)
 	dname=${dname/./$(pwd)}
 	varname=$(echo $fname | cut -d '.' -f 2)
+	
 	echo -e "export $varname=$dname" >> find_me_directories
-	echo -e "Found $varname\t:\t$dname"
+	#echo -e "Found $varname\t:\t$dname"
+	printf '%-40s:%s\n' "${varname}" "${dname}"
 done
