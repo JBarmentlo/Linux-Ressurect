@@ -1,4 +1,5 @@
-#/bin/bash
+#!/bin/bash
+
 function check_aws_admin_connect() {
 	local sts_id=$(aws sts get-caller-identity | cat)
 	echo "$sts_id"
@@ -102,4 +103,5 @@ service=$1
 environment=$2
 terraform_env="$(get_terraform_environment_name "$service" "$environment")"
 export_aws_profile_env_var "$service" "$environment"
-terraform_select_or_create_workspace $terraform_env
+echo "terraform env $terraform_env"
+# terraform_select_or_create_workspace $terraform_env
