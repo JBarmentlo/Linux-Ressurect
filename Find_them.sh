@@ -6,6 +6,7 @@ else
   SearchRootDir="${FIND_ME_ROOT_DIR}"
 fi
 cd $SearchRootDir
+echo $SearchRootDir
 rm -f ~/find_me_directories
 for file in $(find -name ".*.find.me"); do
 	fname=$(basename $file)
