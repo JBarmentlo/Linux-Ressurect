@@ -15,7 +15,7 @@ rm -f $config_tmp_filename
 
 if [ $gpu_ip != 'null' ]
 then
-    sed "s/HOST_PLACEHOLDER/'$gpu_ip'/" $gpu_filename >> $config_tmp_filename
+    sed "s/HOST_PLACEHOLDER/${gpu_ip}/" $gpu_filename >> $config_tmp_filename
     echo "GPU sandbox has been added to hosts"
 
 else
@@ -24,7 +24,7 @@ fi
 
 if [ $cpu_ip != 'null' ]
 then
-    sed "s/HOST_PLACEHOLDER/'$cpu_ip'" $cpu_filename >> $config_tmp_filename
+    sed "s/HOST_PLACEHOLDER/${cpu_ip}" $cpu_filename >> $config_tmp_filename
     echo "CPU sandbox has been added to hosts"
 else
     echo "CPU sandbox is off and has not been added to hosts"
