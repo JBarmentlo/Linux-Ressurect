@@ -38,10 +38,10 @@ echo "applying config changes"
 
 cat $base_config_filename > /home/jbarmentlo/.ssh/config
 
-echo -e "\n\n##################################################" >> /home/jbarmentlo/.ssh/config
+echo -e "\n##################################################" >> /home/jbarmentlo/.ssh/config
 echo    "#         Auto Generated aws ssh config          #" >> /home/jbarmentlo/.ssh/config
 echo -e "##################################################\n" >> /home/jbarmentlo/.ssh/config
 
 cat $config_tmp_filename >> /home/jbarmentlo/.ssh/config
 
-
+rm -f $config_tmp_filename
