@@ -2,11 +2,13 @@
 
 gpu_ip=$(awsip sandbox-gpu-joep)
 cpu_ip=$(awsip sandbox-cpu-joep)
+comet_ip=$(awsip comet-dev)
 
 
 config_fragments_folder='/home/jbarmentlo/.ssh/config_fragments/'
 gpu_filename="${config_fragments_folder}sandbox_gpu_joep"
 cpu_filename="${config_fragments_folder}sandbox_cpu_joep"
+comet_filename="${config_fragments_folder}comet_dev"
 base_config_filename="${config_fragments_folder}base_config"
 config_tmp_filename="${config_fragments_folder}tmp_config"
 
@@ -18,17 +20,29 @@ then
     sed "s/HOST_PLACEHOLDER/${gpu_ip}/" $gpu_filename >> $config_tmp_filename
     echo -e "GPU sandbox has been added to hosts.\n"
 else
-    echo "GPU sandbox is off and has not been added to hosts"
+    echo -e "GPU sandbox is off and has not been added to hosts\n"
 fi
+
 
 if [ $cpu_ip != 'null' ]
 then
     echo "Setting CPU dns to ${cpu_ip}"
     sed "s/HOST_PLACEHOLDER/${cpu_ip}/" $cpu_filename >> $config_tmp_filename
-    echo "CPU sandbox has been added to hosts"
+    echo -e "CPU sandbox has been added to hosts\n"
 else
-    echo "CPU sandbox is off and has not been added to hosts"
+    echo -e "CPU sandbox is off and has not been added to hosts\n"
 fi
+
+
+if [ $comet_ip != 'null' ]
+then
+    echo "Setting Comet dns to ${comet_ip}"
+    sed "s/HOST_PLACEHOLDER/${comet_ip}/" $comet_filename >> $config_tmp_filename
+    echo -e "Comet server has been added to hosts\n"
+else
+    echo -e "Comet serveris off and has not been added to hosts\n"
+fi
+
 
 echo -e "\nSaving .ssh/config file to .ssh/config.old\n"
 cat /home/jbarmentlo/.ssh/config > /home/jbarmentlo/.ssh/config.old
