@@ -1,13 +1,13 @@
 #!/bin/bash
 
-gpu_ip=$(awsip sandbox-gpu-joep)
-cpu_ip=$(awsip sandbox-cpu-joep)
+gpu_ip=$(awsip gpu-joep-sandbox)
+cpu_ip=$(awsip cpu-joep-sandbox)
 comet_ip=$(awsip comet-dev)
 
 
 config_fragments_folder='/home/jbarmentlo/.ssh/config_fragments/'
-gpu_filename="${config_fragments_folder}sandbox_gpu_joep"
-cpu_filename="${config_fragments_folder}sandbox_cpu_joep"
+gpu_filename="${config_fragments_folder}gpu-joep-sandbox"
+cpu_filename="${config_fragments_folder}cpu-joep-sandbox"
 comet_filename="${config_fragments_folder}comet_dev"
 base_config_filename="${config_fragments_folder}base_config"
 config_tmp_filename="${config_fragments_folder}tmp_config"
