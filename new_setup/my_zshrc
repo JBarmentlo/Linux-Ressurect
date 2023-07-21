@@ -1,0 +1,27 @@
+####################################################################
+#                            My Stuff                              #
+####################################################################
+
+export EDITOR=vim
+export FIND_ME_ROOT_DIR=~
+export PATH=$PATH:/home/jbarmentlo/.local/bin
+
+eval "$(direnv hook zsh)"
+FIND_ME_FILE=~/find_me_directories
+if test -f "$FILE"; then
+    source $FIND_ME_FILE
+fi
+
+alias  copy="xclip -sel clip"
+alias  getpwd="pwd | xclip -sel clip; echo 'copied current directory to clipboard'"
+alias  giti='eval `ssh-agent`; ssh-add ~/.ssh/git'
+
+####################################################################
+#                              My P10K                             #
+####################################################################
+
+
+####################################################################
+#                        End My Stuff                              #
+####################################################################
+

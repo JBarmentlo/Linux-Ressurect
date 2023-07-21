@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 # mv find_me_directories find_me_directories_old 2>/dev/null; true
 cd ~
