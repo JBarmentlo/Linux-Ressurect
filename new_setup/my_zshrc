@@ -4,17 +4,24 @@
 
 export EDITOR=vim
 export FIND_ME_ROOT_DIR=~
-export PATH=$PATH:/home/jbarmentlo/.local/bin
+export PATH=/home/ubuntu/.local/bin:$PATH
 
 eval "$(direnv hook zsh)"
+
 FIND_ME_FILE=~/find_me_directories
-if test -f "$FILE"; then
+if test -f "$FIND_ME_FILE"; then
     source $FIND_ME_FILE
+fi
+
+SANDBOX_ENV_FILE=~/.sandcastle/current_env_vars
+if test -f "$SANDBOX_ENV_FILE"; then
+    source $SANDBOX_ENV_FILE
 fi
 
 alias  copy="xclip -sel clip"
 alias  getpwd="pwd | xclip -sel clip; echo 'copied current directory to clipboard'"
 alias  giti='eval `ssh-agent`; ssh-add ~/.ssh/git'
+
 
 ####################################################################
 #                              My P10K                             #
